@@ -2,6 +2,13 @@
 " The plugin is only works with node.js and the installed directory should be
 " added to $PATH
 "
+
+let g:JSLHint_jshint_default = 0
+"禁止自动检测
+let g:JSLHint_auto_check = 0
+"保存的时候检测
+au BufWritePost *.js JSUpdate       
+
 " only support nodeJS
 if !executable('node')
     echoerr 'Node.js is not found!'
@@ -41,7 +48,7 @@ if (!exists('g:JSLHint_auto_check') || g:JSLHint_auto_check) &&  !exists('b:jslh
         "au CursorHold <buffer> call s:ShowCursorJSLHintMsg()
     "endif
     "
-    au CursorMoved <buffer> call s:JSLHintUpdateIfModified()
+    
     "au CursorHold <buffer> call s:JSLHintUpdateIfModified()
     "au CursorHoldI <buffer> call s:JSLHintUpdateIfModified()
     "
@@ -50,6 +57,7 @@ if (!exists('g:JSLHint_auto_check') || g:JSLHint_auto_check) &&  !exists('b:jslh
     "noremap <buffer><silent> u u:JSUpdate<CR>
     "noremap <buffer><silent> <C-R> <C-R>:JSUpdate<CR>
 endif
+au CursorMoved <buffer> call s:s:ShowCursorJSLHintMsg()
 "
 "-----------------------------------------------------------------------------
 "    for script
