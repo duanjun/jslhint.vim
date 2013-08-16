@@ -57,7 +57,7 @@ if (!exists('g:JSLHint_auto_check') || g:JSLHint_auto_check) &&  !exists('b:jslh
     "noremap <buffer><silent> u u:JSUpdate<CR>
     "noremap <buffer><silent> <C-R> <C-R>:JSUpdate<CR>
 endif
-au CursorMoved <buffer> call s:s:ShowCursorJSLHintMsg()
+au CursorMoved <buffer> call s:ShowCursorJSLHintMsg()
 "
 "-----------------------------------------------------------------------------
 "    for script
